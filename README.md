@@ -2,4 +2,5 @@
 
 ### Group's Names
 - Craig Freeze
-- David Chukwudi Igberi
+- Ashley Kamujoma
+- Raphael Dotse
