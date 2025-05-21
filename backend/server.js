@@ -23,7 +23,7 @@ app.use('/api/ratings', ratingsRouter);
 
 // Basic route
 app.get('/', (req, res) => {
-  res.send('API is running...');
+  res.send('Team Kaban API is running...');
 });
 
 // Start server
