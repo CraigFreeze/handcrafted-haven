@@ -1,5 +1,6 @@
 import "./ProductCard.css";
 import Image from "next/image";
+import { FaRegStar } from "react-icons/fa";
 
 type ProductCardProps = {
   title: string;
@@ -24,7 +25,7 @@ function ProductCard({ title, description, price, rating, photoSrc }: ProductCar
       <div className="product-card__product-details">
         <div className="product-card__product-details__top">
           <p className="product-card__product-details__top__product-title">{title}</p>
-          <p className="product-card__product-details__top__rating">{rating}</p>
+          <p className="product-card__product-details__top__rating">{rating} <FaRegStar /> </p>
         </div>
         <p className="product-card__product-details__product-description">
           {description}

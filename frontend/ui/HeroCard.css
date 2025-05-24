@@ -1,9 +1,9 @@
 .hero-component {
-    background-color: pink;
+    background-color: var(--color-secondary);
     border-radius: 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    max-height: 15rem;
+    max-height: 20rem;
 }
 
 .hero-component:hover {
@@ -14,8 +14,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: pink;
-    height: 15rem;
+    background-color: var(--color-secondary);
+    height: 20rem;
     border-radius: 1rem 0 0 1rem;
 }
 
@@ -55,7 +55,7 @@
 
 .hero-component__right {
     line-height: 0;
-    max-height: 15rem;
+    max-height: 20rem;
 }
 
 .hero-component__right__hero-image {

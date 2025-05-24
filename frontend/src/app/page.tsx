@@ -9,43 +9,46 @@ export default function Home() {
     <div className={styles.page}>
       <main className={styles.main}>
         <HeroCard />
-        <div className="products">
-          <ProductCard
-            title="Super Cool Hat"
-            description="a hat that does everything you would need"
-            price="$5.00"
-            rating="5"
-            photoSrc="/hero-image.jpg"
-          />
-          <ProductCard
-            title="Super Cool Hat"
-            description="a hat that does everything you would need"
-            price="$5.00"
-            rating="5"
-            photoSrc="/hero-image.jpg"
-          />
-          <ProductCard
-            title="Super Cool Hat"
-            description="a hat that does everything you would need"
-            price="$5.00"
-            rating="5"
-            photoSrc="/hero-image.jpg"
-          />
-          <ProductCard
-            title="Super Cool Hat"
-            description="a hat that does everything you would need"
-            price="$5.00"
-            rating="5"
-            photoSrc="/hero-image.jpg"
-          />
-          <ProductCard
-            title="Super Cool Hat"
-            description="a hat that does everything you would need"
-            price="$5.00"
-            rating="5"
-            photoSrc="/hero-image.jpg"
-          />
-        </div>
+        <section className="product-section">
+          <h2>New Products</h2>
+          <div className="products">
+            <ProductCard
+              title="Super Cool Hat"
+              description="a hat that does everything you would need"
+              price="$5.00"
+              rating="5"
+              photoSrc="/hero-image.jpg"
+            />
+            <ProductCard
+              title="Super Cool Hat"
+              description="a hat that does everything you would need"
+              price="$5.00"
+              rating="5"
+              photoSrc="/hero-image.jpg"
+            />
+            <ProductCard
+              title="Super Cool Hat"
+              description="a hat that does everything you would need"
+              price="$5.00"
+              rating="5"
+              photoSrc="/hero-image.jpg"
+            />
+            <ProductCard
+              title="Super Cool Hat"
+              description="a hat that does everything you would need"
+              price="$5.00"
+              rating="5"
+              photoSrc="/hero-image.jpg"
+            />
+            <ProductCard
+              title="Super Cool Hat!!!!!!!!!!!!!!!!!!!!!"
+              description="a hat that does everything you would need"
+              price="$5.00"
+              rating="5"
+              photoSrc="/hero-image.jpg"
+            />
+          </div>
+        </section>
         <Image
           className={styles.logo}
           src="/next.svg"
