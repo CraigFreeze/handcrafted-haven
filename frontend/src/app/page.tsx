@@ -1,10 +1,51 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import HeroCard from "../../ui/HeroCard";
+import ProductCard from "../../ui/ProductCard";
+import "./page.css";
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+        <HeroCard />
+        <div className="products">
+          <ProductCard
+            title="Super Cool Hat"
+            description="a hat that does everything you would need"
+            price="$5.00"
+            rating="5"
+            photoSrc="/hero-image.jpg"
+          />
+          <ProductCard
+            title="Super Cool Hat"
+            description="a hat that does everything you would need"
+            price="$5.00"
+            rating="5"
+            photoSrc="/hero-image.jpg"
+          />
+          <ProductCard
+            title="Super Cool Hat"
+            description="a hat that does everything you would need"
+            price="$5.00"
+            rating="5"
+            photoSrc="/hero-image.jpg"
+          />
+          <ProductCard
+            title="Super Cool Hat"
+            description="a hat that does everything you would need"
+            price="$5.00"
+            rating="5"
+            photoSrc="/hero-image.jpg"
+          />
+          <ProductCard
+            title="Super Cool Hat"
+            description="a hat that does everything you would need"
+            price="$5.00"
+            rating="5"
+            photoSrc="/hero-image.jpg"
+          />
+        </div>
         <Image
           className={styles.logo}
           src="/next.svg"
