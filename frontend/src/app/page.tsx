@@ -1,10 +1,54 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import HeroCard from "../../ui/HeroCard";
+import ProductCard from "../../ui/ProductCard";
+import "./page.css";
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+        <HeroCard />
+        <section className="product-section">
+          <h2>New Products</h2>
+          <div className="products">
+            <ProductCard
+              title="Super Cool Hat"
+              description="a hat that does everything you would need"
+              price="$5.00"
+              rating="5"
+              photoSrc="https://i.etsystatic.com/13199059/r/il/f2ddcb/5541704313/il_1588xN.5541704313_52hi.jpg"
+            />
+            <ProductCard
+              title="Super Cool Hat"
+              description="a hat that does everything you would need"
+              price="$5.00"
+              rating="5"
+              photoSrc="https://i.etsystatic.com/54688671/r/il/9fa62f/6667106851/il_1588xN.6667106851_bfd0.jpg"
+            />
+            <ProductCard
+              title="Super Cool Hat"
+              description="a hat that does everything you would need"
+              price="$5.00"
+              rating="5"
+              photoSrc="https://i.etsystatic.com/39060313/r/il/227e0f/4882964275/il_1588xN.4882964275_4m0u.jpg"
+            />
+            <ProductCard
+              title="Super Cool Hat"
+              description="a hat that does everything you would need"
+              price="$5.00"
+              rating="5"
+              photoSrc="https://i.etsystatic.com/6607847/r/il/ccfe51/2401468499/il_1588xN.2401468499_3nsg.jpg"
+            />
+            <ProductCard
+              title="Super Cool Hat!!!!!!!!!!!!!!!!!!!!!"
+              description="a hat that does everything you would need"
+              price="$5.00"
+              rating="5"
+              photoSrc="/hero-image.jpg"
+            />
+          </div>
+        </section>
         <Image
           className={styles.logo}
           src="/next.svg"
