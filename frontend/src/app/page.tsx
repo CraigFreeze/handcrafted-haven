@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import HeroCard from "../../ui/HeroCard";
 import ProductCard from "../../ui/ProductCard";
+import AboutUs from "../../ui/AboutUs";
 import "./page.css";
 
 export default function Home() {
@@ -89,6 +90,7 @@ export default function Home() {
             Read our docs
           </a>
         </div>
+         <AboutUs />
       </main>
       <footer className={styles.footer}>
         <a
@@ -134,6 +136,7 @@ export default function Home() {
           Go to nextjs.org →
         </a>
       </footer>
+     
     </div>
   );
 }
