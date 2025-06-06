@@ -6,7 +6,7 @@ type ProductCardProps = {
   title: string;
   description: string;
   price: string | number;
-  rating: string | number;
+  rating: string | number | null;
   photoSrc: string;
 };
 
@@ -25,7 +25,7 @@ function ProductCard({ title, description, price, rating, photoSrc }: ProductCar
       <div className="product-card__product-details">
         <div className="product-card__product-details__top">
           <p className="product-card__product-details__top__product-title">{title}</p>
-          <p className="product-card__product-details__top__rating">{rating} <FaRegStar /> </p>
+          <p className="product-card__product-details__top__rating">{rating} {rating && <FaRegStar />} </p>
         </div>
         <p className="product-card__product-details__product-description">
           {description}
