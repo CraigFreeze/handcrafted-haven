@@ -1,5 +1,5 @@
 import postgres from "postgres";
-import { Product, ProductWithRating, Rating, User } from "./definitions";
+import { Product, Rating, User } from "./definitions";
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
 
@@ -16,9 +16,32 @@ export async function fetchProducts() {
   }
 }
 
+export async function fetchProductById(id: string) {
+  try {
+    const data = await sql<Product[]>`
+  SELECT 
+        products.id,
+        products.title,
+        products.user_id,
+        products.category,
+        products.price,
+        products.description,
+        products.image_url,
+        users.public_name
+      FROM products
+      JOIN users ON products.user_id = users.id
+      WHERE products.id = ${id}
+`;
+    return data[0] || null;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to fetch products.");
+  }
+}
+
 export async function fetchProductsWithRating() {
   try {
-    const data = await sql<ProductWithRating[]>`
+    const data = await sql<Product[]>`
       SELECT 
         products.id,
         products.user_id,

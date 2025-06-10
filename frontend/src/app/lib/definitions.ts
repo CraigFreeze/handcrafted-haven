@@ -6,17 +6,8 @@ export type Product = {
   price: number;
   description: string;
   image_url: string;
-};
-
-export type ProductWithRating = {
-  id: string;
-  user_id: string;
-  title: string;
-  category: string;
-  price: number;
-  description: string;
-  image_url: string;
-  average_rating: number | null;
+  public_name?: string; // Optional, used in product details
+  average_rating?: number | null; // Optional, used in product listing with ratings
 };
 
 export type User = {

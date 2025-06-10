@@ -7,7 +7,7 @@ type ProductCardProps = {
   title: string;
   description: string;
   price: string | number;
-  rating: string | number | null;
+  rating: string | number | null | undefined;
   photoSrc: string;
 };
 
@@ -44,7 +44,7 @@ function ProductCard({
             {description}
           </p>
           <span className="product-card__product-details__product-price">
-            {price}
+            ${price}
           </span>
           <button className="product-card__product-details__add-to-cart-button">
             Add to Cart
