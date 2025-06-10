@@ -1,8 +1,8 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import HeroCard from "../../ui/HeroCard";
-import ProductCard from "../../ui/ProductCard";
-import AboutUs from "../../ui/AboutUs";
+import HeroCard from "./ui/HeroCard";
+import ProductCard from "./ui/ProductCard";
+import AboutUs from "./ui/AboutUs";
 import "./page.css";
 import { fetchProductsWithRating } from "@/app/lib/data";
 
