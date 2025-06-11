@@ -1,5 +1,6 @@
 import ProductDetails from "@/app/ui/ProductDetails";
-import { fetchProductById } from "@/app/lib/data";
+import ProductReviews from "@/app/ui/ProductReviews";
+import { fetchProductById, fetchRatingsAndReviewsByID } from "@/app/lib/data";
 import "./page.css";
 
 export default async function Page({
@@ -9,10 +10,12 @@ export default async function Page({
 }) {
   const { id } = await params;
   const product = await fetchProductById(id);
+  const productReviews = await fetchRatingsAndReviewsByID(id);
 
   return (
     <div className="product-page">
       <ProductDetails product={product} />
+      <ProductReviews productReviews={productReviews} />
     </div>
   );
 }

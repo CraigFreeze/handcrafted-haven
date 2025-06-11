@@ -76,6 +76,28 @@ export async function fetchRatings() {
   }
 }
 
+export async function fetchRatingsAndReviewsByID(id: string) {
+  try {
+    const data = await sql<Rating[]>`
+  SELECT 
+        ratings.id,
+        ratings.product_id,
+        ratings.user_id,
+        ratings.star_rating,
+        ratings.review,
+        users.public_name
+      FROM ratings
+      JOIN users ON ratings.user_id = users.id
+      WHERE ratings.product_id = ${id}
+`;
+
+    return data;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to fetch product reviews.");
+  }
+}
+
 export async function fetchUsers() {
   try {
     const data = await sql<User[]>`
