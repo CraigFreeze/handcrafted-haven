@@ -1,0 +1,86 @@
+.aboutUsSection {
+  background: #fdf6e3;
+  border-radius: 16px;
+  padding: 48px 24px 32px 24px;
+  text-align: center;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: #222;
+}
+
+.storyLink {
+  color: #222;
+  font-size: 1rem;
+  text-decoration: underline;
+  margin-bottom: 32px;
+  display: inline-block;
+}
+
+.columns {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 32px 0 24px 0;
+  text-align: left;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 1 1 220px;
+  max-width: 340px;
+  min-width: 220px;
+}
+
+.column h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.column p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.helpCenter {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.helpButton {
+  background: #fff;
+  border: 1px solid #bdbdbd;
+  border-radius: 24px;
+  padding: 8px 24px;
+  color: #222;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 4px;
+  transition: background 0.2s, border 0.2s;
+}
+
+.helpButton:hover {
+  background: #f5f5f5;
+  border-color: #222;
+}
+
+@media (max-width: 900px) {
+  .columns {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    text-align: center;
+  }
+  .column {
+    max-width: 100%;
+  }
+}
