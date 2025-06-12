@@ -12,6 +12,7 @@ function ProductDetails({ product }: { product: Product }) {
           className="product__image-wrapper__image"
           src={product.image_url || "/hero-image.jpg"}
           alt="A duffle bag, dopp kit and ceramic mug sit atop a wood table in front of a wall of art prints."
+          priority
         />
       </div>
       <div className="product-details">
