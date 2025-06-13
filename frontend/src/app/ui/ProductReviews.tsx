@@ -1,5 +1,6 @@
 import { FaRegStar, FaStar } from "react-icons/fa";
 import "./ProductReviews.css";
+import CreateReviewForm from "@/app/ui/CreateReviewForm";
 
 function ProductReviews({ productReviews }: { productReviews: any }) {
   console.log(productReviews);
@@ -7,6 +8,9 @@ function ProductReviews({ productReviews }: { productReviews: any }) {
     <>
       <div className="product-reviews">
         <h2>Reviews</h2>
+
+        <CreateReviewForm />
+
         {productReviews.length > 0 ? (
           productReviews.map((review: any) => (
             <div key={review.id} className="review">
