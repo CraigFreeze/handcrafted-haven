@@ -1,6 +1,7 @@
 "use client";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect } from "react";
+import UserProfile from "./UserProfile";
 
 export default function Dashboard() {
   const searchParams = useSearchParams();
@@ -50,6 +51,7 @@ export default function Dashboard() {
             </p>
           </div>
         )}
+        <UserProfile email={email!} name="User Name" role={role!} />
         <button
           onClick={handleSignOut}
           className="mt-8 w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 rounded transition"
