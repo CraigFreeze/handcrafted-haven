@@ -7,7 +7,7 @@ import "./page.css";
 import { fetchProductsWithRating } from "@/app/lib/data";
 
 export default async function Home() {
-  const products = await fetchProductsWithRating();
+  const products = await fetchProductsWithRating() || [];
 
   return (
     <div className={styles.page}>
