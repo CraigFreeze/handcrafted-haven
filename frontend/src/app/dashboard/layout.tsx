@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-indigo-100 flex flex-col md:flex-row">
       <Sidebar />
-      <Suspense>{children}</Suspense>
+      <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
     </div>
   );
 }
