@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import Sidebar from "./Sidebar";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +27,7 @@ export default function RootLayout({
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-indigo-100 flex flex-col md:flex-row">
       <Sidebar />
-      {children}
+      <Suspense>{children}</Suspense>
     </div>
   );
 }
