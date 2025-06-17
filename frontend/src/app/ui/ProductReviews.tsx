@@ -11,12 +11,11 @@ function ProductReviews({
   userId: string;
   productReviews: any;
 }) {
-  console.log(productReviews);
+  console.log(productId, userId);
   return (
     <>
       <div className="product-reviews">
         <h2>Reviews</h2>
-
         <CreateReviewForm productId={productId} userId={userId} />
 
         {productReviews.length > 0 ? (
