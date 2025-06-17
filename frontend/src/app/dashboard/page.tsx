@@ -1,25 +1,25 @@
 "use client";
-import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import UserProfile from "./UserProfile";
-import UserProfileServer from "./UserProfileServer";
-import { LuLogOut, LuUser, LuPackage, LuStar, LuSettings } from "react-icons/lu";
+import { LuPackage, LuStar } from "react-icons/lu";
 
 export default function Dashboard() {
-  const searchParams = useSearchParams();
-  const email = searchParams.get("email");
-  const role = searchParams.get("role");
-  const router = useRouter();
-
-  function handleSignOut() {
-    router.replace("/login");
-  }
+  const [email, setEmail] = useState<string | null>(null);
+  const [role, setRole] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!email) {
-      router.replace("/login");
+    const userObj = localStorage.getItem("userObj");
+    let parsed: any;
+    if (userObj) {
+      parsed = JSON.parse(userObj);
+      setEmail(parsed.email || null);
+      setRole(parsed.role || null);
+    } 
+    if (!parsed.email) {
+      window.location.replace("/login");
     }
-  }, [email, router]);
+  }, []);
+
 
   if (!email) return null;
 
@@ -59,7 +59,7 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-      
+   
       </div>
     </main>
   );

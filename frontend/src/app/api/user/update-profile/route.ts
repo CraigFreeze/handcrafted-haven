@@ -35,18 +35,38 @@ export async function POST(req: NextRequest) {
         imageUrl = `/uploads/${fileName}`;
     }
 
-    if (!imageUrl) {
-        // If no image is uploaded, keep the existing image URL
-        await sql`
+    try {
+        // Check if the user exists
+        const user = await sql`
+        SELECT * FROM users WHERE email = ${email}
+        `;
+        if (user.length === 0) {
+            return NextResponse.json({ error: "User not found" }, { status: 404 });
+        }
+    } catch (error) {
+        console.error("Database error:", error);
+        return NextResponse.json({ error: "Database error: "+ error }, { status: 500 });
+    }
+
+    try {
+        if (!imageUrl) {
+            // If no image is uploaded, keep the existing image URL
+            await sql`
     UPDATE users SET public_name = ${name}
     WHERE email = ${email}
   `;
-    } else {
-        await sql`
+        } else {
+            await sql`
       UPDATE users SET public_name = ${name}, image = ${imageUrl}
       WHERE email = ${email}
     `;
+        }
+
+    } catch (error) {
+        console.error("Database error:", error);
+        return NextResponse.json({ error: "Database error" }, { status: 500 });
     }
+
 
     return NextResponse.json({ ok: true, image: imageUrl });
 }
