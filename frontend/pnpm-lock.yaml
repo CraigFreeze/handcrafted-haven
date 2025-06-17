@@ -29,6 +29,9 @@ dependencies:
   uuid:
     specifier: ^11.1.0
     version: 11.1.0
+  zod:
+    specifier: ^3.25.67
+    version: 3.25.67
 
 devDependencies:
   '@eslint/eslintrc':
@@ -3043,3 +3046,7 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /zod@3.25.67:
+    resolution: {integrity: sha512-idA2YXwpCdqUSKRCACDE6ItZD9TZzy3OZMtpfLoh6oPR47lipysRrJfjzMqFxQ3uJuUPyUeWe1r9vLH33xO/Qw==}
+    dev: false

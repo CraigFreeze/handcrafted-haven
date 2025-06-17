@@ -1,16 +1,17 @@
 "use client";
 
-// import { createInvoice, State } from "@/app/lib/actions";
-// import { useActionState } from "react";
+import { useActionState } from "react";
 import { useState } from "react";
 import "./CreateReviewForm.css";
+import { createReview, State } from "@/app/lib/actions";
 
 function CreateReviewForm() {
-  // const initialState: State = { message: null, errors: {} };
-  // const [state, formAction] = useActionState(createInvoice, initialState);
+  const initialState: State = { message: null, errors: {} };
+  const [state, formAction] = useActionState(createReview, initialState);
   const [rating, setRating] = useState(5);
+
   return (
-    <form className="review-form">
+    <form className="review-form" action={formAction}>
       <fieldset className="review-form__fieldset">
         <legend className="review-form__legend">Write a Review</legend>
 
@@ -38,7 +39,9 @@ function CreateReviewForm() {
         </div>
 
         <div className="review-form__group">
-          <label className="review-form__label" htmlFor="review-title">Title</label>
+          <label className="review-form__label" htmlFor="review-title">
+            Title
+          </label>
           <input
             className="review-form__input"
             id="review-title"
@@ -49,7 +52,9 @@ function CreateReviewForm() {
         </div>
 
         <div className="review-form__group">
-          <label className="review-form__label" htmlFor="review-content">Review</label>
+          <label className="review-form__label" htmlFor="review-content">
+            Review
+          </label>
           <textarea
             className="review-form__input review-form__input--textarea"
             id="review-content"
@@ -59,8 +64,19 @@ function CreateReviewForm() {
           />
         </div>
       </fieldset>
+      {state.errors && (
+        <div className="review-form__errors">
+          {Object.entries(state.errors).map(([field, messages]) => (
+            <p key={field} className="review-form__error">
+              {messages.join(", ")}
+            </p>
+          ))}
+        </div>
+      )}
 
-      <button className="review-form__submit" type="submit">Submit Review</button>
+      <button className="review-form__submit" type="submit">
+        Submit Review
+      </button>
     </form>
   );
 }
