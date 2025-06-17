@@ -60,7 +60,7 @@
 .product-card__product-details__product-price {
   font-size: 16px;
   font-weight: bold;
-  color: var(--color-accent);
+  color: var(--color-pink);
   /* Pink color for price */
 }
 
