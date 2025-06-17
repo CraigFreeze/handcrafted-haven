@@ -59,7 +59,7 @@ export async function fetchProductsWithRating() {
     return data;
   } catch (error) {
     console.error("Database Error:", error);
-    throw new Error("Failed to fetch products with ratings.");
+   // throw new Error("Failed to fetch products with ratings.");
   }
 }
 
