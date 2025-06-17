@@ -5,13 +5,23 @@ import { useState } from "react";
 import "./CreateReviewForm.css";
 import { createReview, State } from "@/app/lib/actions";
 
-function CreateReviewForm() {
+function CreateReviewForm({
+  productId,
+  userId,
+}: {
+  productId: string;
+  userId: string;
+}) {
   const initialState: State = { message: null, errors: {} };
   const [state, formAction] = useActionState(createReview, initialState);
   const [rating, setRating] = useState(5);
 
   return (
     <form className="review-form" action={formAction}>
+      {/* Hidden fields for productId and userId */}
+      <input type="hidden" name="productId" value={productId} />
+      <input type="hidden" name="userId" value={userId} />
+
       <fieldset className="review-form__fieldset">
         <legend className="review-form__legend">Write a Review</legend>
 

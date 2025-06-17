@@ -2,14 +2,22 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import "./ProductReviews.css";
 import CreateReviewForm from "@/app/ui/CreateReviewForm";
 
-function ProductReviews({ productReviews }: { productReviews: any }) {
+function ProductReviews({
+  productId,
+  userId,
+  productReviews,
+}: {
+  productId: string;
+  userId: string;
+  productReviews: any;
+}) {
   console.log(productReviews);
   return (
     <>
       <div className="product-reviews">
         <h2>Reviews</h2>
 
-        <CreateReviewForm />
+        <CreateReviewForm productId={productId} userId={userId} />
 
         {productReviews.length > 0 ? (
           productReviews.map((review: any) => (
@@ -27,11 +35,9 @@ function ProductReviews({ productReviews }: { productReviews: any }) {
                 ))}
               </p>
               <h3 className="review_title">{review.title}</h3>
-              
+
               <p className="review_content">{review.review}</p>
-              <p className="user">
-                {review.public_name || "Anonymous"}{" "}
-              </p>
+              <p className="user">{review.public_name || "Anonymous"} </p>
               <p className="date">
                 {new Date(review.created_at).toLocaleDateString()}
               </p>

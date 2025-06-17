@@ -6,16 +6,16 @@ import "./page.css";
 export default async function Page({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 }) {
-  const { id } = await params;
+  const { id } = params;
   const product = await fetchProductById(id);
   const productReviews = await fetchRatingsAndReviewsByID(id);
 
   return (
     <div className="product-page">
       <ProductDetails product={product} />
-      <ProductReviews productReviews={productReviews} />
+      <ProductReviews productId={product.id} userId={"6f6c86ee-4b16-4468-9759-7efcb0c8d4be"} productReviews={productReviews} />
     </div>
   );
 }
