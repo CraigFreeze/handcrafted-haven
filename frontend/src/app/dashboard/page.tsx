@@ -3,7 +3,13 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect } from "react";
 import UserProfile from "./UserProfile";
 import UserProfileServer from "./UserProfileServer";
-import { LuLogOut, LuUser, LuPackage, LuStar, LuSettings } from "react-icons/lu";
+import {
+  LuLogOut,
+  LuUser,
+  LuPackage,
+  LuStar,
+  LuSettings,
+} from "react-icons/lu";
 
 export default function Dashboard() {
   const searchParams = useSearchParams();
@@ -59,7 +65,6 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-      
       </div>
     </main>
   );
