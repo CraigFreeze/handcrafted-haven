@@ -1,12 +1,21 @@
 "use client";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { LuLogOut, LuUser, LuPackage, LuStar, LuSettings } from "react-icons/lu";
 
 export default function Sidebar() {
-  const searchParams = useSearchParams();
-  const email = searchParams.get("email") || "";
-  const role = searchParams.get("role") || "";
+  const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
   const router = useRouter();
+
+  useEffect(() => {
+    const userObj = localStorage.getItem("userObj");
+    if (userObj) {
+      const parsed = JSON.parse(userObj);
+      setEmail(parsed.email || "");
+      setRole(parsed.role || "");
+    }
+  }, []);
 
   function handleSignOut() {
     router.replace("/login");

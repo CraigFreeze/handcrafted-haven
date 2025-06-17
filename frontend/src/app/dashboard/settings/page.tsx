@@ -1,6 +1,6 @@
 "use client";
 import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import UserProfile from "../UserProfile";
 import { LuLogOut, LuUser, LuPackage, LuStar, LuSettings } from "react-icons/lu";
 
@@ -8,7 +8,9 @@ export default function Settings() {
   const searchParams = useSearchParams();
   const email = searchParams.get("email");
   const role = searchParams.get("role");
+  const [user, setUser] = useState<any>(null);
   const router = useRouter();
+  let userObj: any;
 
   function handleSignOut() {
     router.replace("/login");
@@ -18,6 +20,12 @@ export default function Settings() {
     if (!email) {
       router.replace("/login");
     }
+     userObj = localStorage.getItem('userObj');
+     userObj = JSON.parse(userObj);
+     setUser(userObj);
+
+     console.log(userObj);
+
   }, [email, router]);
 
   if (!email) return null;
@@ -27,7 +35,7 @@ export default function Settings() {
       <div className="w-full max-w-2xl">
         
           {/* User Profile */}
-          <UserProfile email={email!} name="User Name" role={role!} />
+          {<UserProfile email={user?.email} name={user?.name} role={user?.role} image={user?.image} /> }
         </div>
       </main>
 

@@ -11,7 +11,9 @@ export default function Login() {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const res = await loginAction(formData);
+    
     if (res.ok && res.role && res.email) {
+      localStorage.setItem("userObj", JSON.stringify({ email: res.email, role: res.role, name: res.name, image: res.image }));
       router.push(`/dashboard?role=${res.role}&email=${res.email}`);
     } else {
       setError(res.error || "Login failed");

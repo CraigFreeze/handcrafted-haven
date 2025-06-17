@@ -1,19 +1,32 @@
 "use client";
-import { useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { updateUserProfile } from "./userActions";
 
-export default function UserProfile({
-  email,
-  name,
-  role,
-  image: initialImage,
-}: { email: string; name: string; role: string; image?: string | null }) {
+export default function UserProfile() {
   const [editMode, setEditMode] = useState(false);
-  const [profile, setProfile] = useState({ name, email });
+  const [profile, setProfile] = useState<any>(null);
   const [message, setMessage] = useState("");
-  const [image, setImage] = useState<string | null>(initialImage || null);
+  const [image, setImage] = useState<string | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Always load from localStorage on mount and after update
+  useEffect(() => {
+    const userObj = localStorage.getItem("userObj");
+    if (userObj) {
+      const parsed = JSON.parse(userObj);
+      setProfile(parsed);
+      setImage(parsed.image || null);
+    }
+  }, []);
+
+  // When profile changes (after save), update localStorage and image state
+  useEffect(() => {
+    if (profile) {
+      localStorage.setItem("userObj", JSON.stringify(profile));
+      setImage(profile.image || null);
+    }
+  }, [profile]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setProfile({ ...profile, [e.target.name]: e.target.value });
@@ -22,10 +35,15 @@ export default function UserProfile({
   const handleEdit = () => setEditMode(true);
 
   const handleCancel = () => {
-    setProfile({ name, email });
+    const userObj = localStorage.getItem("userObj");
+    if (userObj) {
+      const parsed = JSON.parse(userObj);
+      setProfile(parsed);
+      setImage(parsed.image || null);
+    }
     setEditMode(false);
     setMessage("");
-    setPreview(image);
+    setPreview(null);
   };
 
   const handleSave = async (e: React.FormEvent) => {
@@ -43,9 +61,13 @@ export default function UserProfile({
       });
       const result = await res.json();
       if (!res.ok) throw new Error(result.error || "Failed to update profile");
+      // Update localStorage and state with new image if present
+      const updatedProfile = { ...profile, image: result.image || image };
+      setProfile(updatedProfile);
       setImage(result.image || image);
       setMessage("Profile updated!");
       setEditMode(false);
+      setPreview(null);
     } catch (err: any) {
       setMessage(err.message || "Failed to update profile");
     }
@@ -66,6 +88,11 @@ export default function UserProfile({
     }
   };
 
+  // Get host for image URL
+  const host = typeof window !== "undefined" ? window.location.origin : "";
+
+  if (!profile) return null;
+
   return (
     <div className="bg-white rounded-xl shadow p-6 mt-8 max-w-md mx-auto">
       <h2 className="text-xl font-bold mb-4 text-indigo-700">User Profile</h2>
@@ -81,7 +108,7 @@ export default function UserProfile({
             {preview || image ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
-                src={preview || image || ""}
+                src={preview || (profile?.image ? `${host}${profile.image}` : "https://via.placeholder.com/150")}
                 alt="User"
                 className="object-cover w-full h-full"
                 loading="lazy"
@@ -110,7 +137,7 @@ export default function UserProfile({
           <input
             type="text"
             name="name"
-            value={profile.name}
+            value={profile?.name || ""}
             onChange={handleChange}
             disabled={!editMode}
             className="w-full p-2 border rounded bg-gray-50 disabled:bg-gray-100"
@@ -123,7 +150,7 @@ export default function UserProfile({
           <input
             type="email"
             name="email"
-            value={profile.email}
+            value={profile?.email || ""}
             disabled
             className="w-full p-2 border rounded bg-gray-100"
             placeholder="Enter your email"
@@ -134,7 +161,7 @@ export default function UserProfile({
           <label className="block text-gray-700 mb-1">Role</label>
           <input
             type="text"
-            value={role}
+            value={profile?.role || ""}
             disabled
             className="w-full p-2 border rounded bg-gray-100"
             placeholder="User role"

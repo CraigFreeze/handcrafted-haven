@@ -8,8 +8,8 @@ type UserProfileProps = {
   image: string;
 };
 
-export default function UserProfileServer({ email }: { email: string }) {
-  const user: any = getUserProfile(email);
+export default async function UserProfileServer({ email }: { email: string }) {
+  const user: any = await getUserProfile(email);
 
   // Pass user details to the client component
   return (

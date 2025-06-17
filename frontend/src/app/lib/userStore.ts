@@ -62,7 +62,7 @@ export async function validateLogin(data: { email: string; password: string }) {
         console.error(error);
     }
 
-    if (!user[0]) {
+    if (user && !user[0]) {
         throw new Error("Invalid credentials");
     }
 
