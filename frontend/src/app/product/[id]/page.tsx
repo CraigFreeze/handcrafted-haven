@@ -9,7 +9,6 @@ export default async function Page({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  console.log(id)
   const product = await fetchProductById(id);
   const productReviews = await fetchRatingsAndReviewsByID(id);
 

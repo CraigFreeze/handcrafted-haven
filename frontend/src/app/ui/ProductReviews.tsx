@@ -11,7 +11,6 @@ function ProductReviews({
   userId: string;
   productReviews: any;
 }) {
-  console.log(productId, userId);
   return (
     <>
       <div className="product-reviews">
