@@ -50,4 +50,13 @@ a {
   html {
     color-scheme: dark;
   }
+
+}
+
+@media (max-width: 768px) {
+  aside {
+    border-radius: 0 0 2rem 2rem !important;
+    flex-direction: row !important;
+    justify-content: space-between;
+  }
 }
