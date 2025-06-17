@@ -1,0 +1,28 @@
+.product-reviews{
+  padding: 1rem;
+}
+
+.review {
+  border-top: 1px solid black;
+  padding: 1rem;
+}
+
+.review:first-of-type {
+  border-top: none;
+}
+
+.star-ratings {
+  display: flex;
+  font-size: 1.2rem;
+}
+
+.review_title {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.review_content {
+  padding-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}

@@ -1,7 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import UserProfile from "./UserProfile";
+import UserProfileServer from "./UserProfileServer";
 import { LuPackage, LuStar } from "react-icons/lu";
+
 
 export default function Dashboard() {
   const [email, setEmail] = useState<string | null>(null);
@@ -59,7 +61,6 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-   
       </div>
     </main>
   );
