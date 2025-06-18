@@ -1,10 +1,14 @@
-import React from "react";
+import { auth } from "@/auth";
+import CreateProductForm from "./CreateProductForm";
 
-export default function CreateListingPage() {
+export default async function CreateListingPage() {
+  const session = await auth();
+  const userId = session?.user?.id || "";
+
   return (
-    <main style={{ padding: "2rem" }}>
+    <main style={{ padding: "2rem", maxWidth: 600, margin: "0 auto" }}>
       <h1>Create Listing</h1>
-      <p>This is the page where you can create a new listing.</p>
+      <CreateProductForm userId={userId} />
     </main>
   );
 }
