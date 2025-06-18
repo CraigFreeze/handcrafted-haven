@@ -1,0 +1,40 @@
+/* Search.css - custom styles for the Search component */
+
+.search-container {
+    position: relative;
+    display: flex;
+    flex: 1 1 0%;
+    margin: .5rem 0rem;
+}
+
+.search-input {
+    width: 100%;
+    border: 1px solid var(--color-light, #e5e7eb);
+    border-radius: 8px;
+    padding: 9px 10px 9px 38px;
+    font-size: 1rem;
+    outline: 2px solid transparent;
+    color: #222;
+    background: var(--color-white, #fff);
+    transition: border-color 0.2s;
+}
+
+.search-input:focus {
+    border-color: #333;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: #888;
+    pointer-events: none;
+    transition: color 0.2s;
+}
+
+.search-input:focus~.search-icon {
+    color: #222;
+}
