@@ -10,7 +10,6 @@ export default function Settings() {
   const role = searchParams.get("role");
   const [user, setUser] = useState<any>(null);
   const router = useRouter();
-  let userObj: any;
 
   function handleSignOut() {
     router.replace("/login");
@@ -20,7 +19,7 @@ export default function Settings() {
     if (!email) {
       router.replace("/login");
     }
-     userObj = localStorage.getItem('userObj');
+    let userObj: any = localStorage.getItem('userObj');
      userObj = JSON.parse(userObj);
      setUser(userObj);
 
@@ -35,7 +34,7 @@ export default function Settings() {
       <div className="w-full max-w-2xl">
         
           {/* User Profile */}
-          {<UserProfile email={user?.email} name={user?.name} role={user?.role} image={user?.image} /> }
+          {<UserProfile /> }
         </div>
       </main>
 

@@ -13,6 +13,6 @@ export default async function UserProfileServer({ email }: { email: string }) {
 
   // Pass user details to the client component
   return (
-    <>{user && <UserProfile name={user.name} email={user.email} role={user.role} image={user.image} />}</>
+    <>{user && <UserProfile />}</>
   );
 }
