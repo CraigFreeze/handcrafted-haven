@@ -39,27 +39,32 @@ export async function fetchProductById(id: string) {
   }
 }
 
-export async function fetchProductsWithRating() {
+export async function fetchFilteredProductsWithRating(query: string) {
   try {
     const data = await sql<Product[]>`
-      SELECT 
-        products.id,
-        products.user_id,
-        products.title,
-        products.category,
-        products.price,
-        products.description,
-        products.image_url,
-        ROUND(AVG(ratings.star_rating)::numeric, 1) AS average_rating
-      FROM products
-      LEFT JOIN ratings ON products.id = ratings.product_id
-      GROUP BY products.id
-    `;
+  SELECT 
+    products.id,
+    products.user_id,
+    products.title,
+    products.category,
+    products.price,
+    products.description,
+    products.image_url,
+    ROUND(AVG(ratings.star_rating)::numeric, 1) AS average_rating
+  FROM products
+  LEFT JOIN ratings ON products.id = ratings.product_id
+  WHERE
+    products.title ILIKE ${`%${query}%`} OR
+    products.category ILIKE ${`%${query}%`} OR
+    products.description ILIKE ${`%${query}%`} OR
+    products.price::text ILIKE ${`%${query}%`}
+  GROUP BY products.id
+`;
 
     return data;
   } catch (error) {
     console.error("Database Error:", error);
-   // throw new Error("Failed to fetch products with ratings.");
+    // throw new Error("Failed to fetch products with ratings.");
   }
 }
 
