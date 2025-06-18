@@ -2,6 +2,7 @@
 
 import React, { useActionState } from "react";
 import { createProduct } from "@/app/lib/actions";
+import styles from "./page.module.css";
 
 const initialState = { errors: {}, message: "" };
 
@@ -9,10 +10,7 @@ export default function CreateProductForm({ userId }: { userId: string }) {
   const [state, formAction] = useActionState(createProduct, initialState);
 
   return (
-    <form
-      action={formAction}
-      style={{ display: "flex", flexDirection: "column", gap: 16 }}
-    >
+    <form action={formAction} className={styles.formRoot}>
       <input type="hidden" name="user_id" value={userId} />
       <label>
         Title

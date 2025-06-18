@@ -4,9 +4,7 @@ export default function AboutUs() {
   return (
     <section className={styles.aboutUsSection}>
       <h2 className={styles.heading}>What is Handcrafted Haven?</h2>
-      <a href="#" className={styles.storyLink}>
-        Read our wonderfully weird story
-      </a>
+      
       <div className={styles.columns}>
         <div className={styles.column}>
           <h3>A community doing good</h3>
@@ -29,7 +27,7 @@ export default function AboutUs() {
       </div>
       <div className={styles.helpCenter}>
         <span>Have a question? Well, we’ve got some answers.</span>
-        <a href="#" className={styles.helpButton}>Go to Help Center</a>
+
       </div>
     </section>
   );

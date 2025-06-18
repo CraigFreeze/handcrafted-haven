@@ -10,15 +10,6 @@ function Sidenav() {
         <li>
           <Link
             className={styles.sidenavLink}
-            href="/profile/update"
-            aria-label="Update your profile"
-          >
-            Update Profile
-          </Link>
-        </li>
-        <li>
-          <Link
-            className={styles.sidenavLink}
             href="/profile/create-listing"
             aria-label="Create a new listing"
           >

@@ -1,0 +1,94 @@
+.createListingPage {
+    max-width: 1000px;
+    margin: 40px 1rem;
+    padding: 32px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+    font-family: var(--font-geist-sans, Arial, sans-serif);
+}
+
+.createListingPage h1 {
+    font-size: 2rem;
+    margin-bottom: 24px;
+    color: #222;
+    letter-spacing: -0.5px;
+}
+
+.formRoot {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formRoot label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.formRoot input,
+.formRoot textarea {
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #fafafa;
+    transition: border 0.2s;
+    width: 30rem;
+}
+
+.formRoot input:focus,
+.formRoot textarea:focus {
+    border-color: #0070f3;
+    outline: none;
+}
+
+.formRoot button[type="submit"] {
+    background: #0070f3;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.formRoot button[type="submit"]:hover {
+    background: #005bb5;
+}
+
+.formRoot p {
+    margin: 0;
+    font-size: 0.98em;
+}
+
+.formRoot p[style*="red"] {
+    color: #d32f2f !important;
+}
+
+.formRoot p[style*="green"] {
+    color: #388e3c !important;
+}
+
+@media (max-width: 600px) {
+    .createListingPage {
+        padding: 16px;
+    }
+
+    .formRoot input,
+    .formRoot textarea {
+        font-size: 0.98rem;
+        padding: 8px 8px;
+        width: 20rem;
+    }
+
+    .createListingPage h1 {
+        font-size: 1.3rem;
+    }
+}

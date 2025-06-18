@@ -1,6 +1,7 @@
 import { auth } from "@/auth";
 import CreateProductForm from "./CreateProductForm";
 import { fetchUserById } from "@/app/lib/fetchUserById";
+import styles from "./page.module.css";
 
 export default async function CreateListingPage() {
   const session = await auth();
@@ -10,7 +11,7 @@ export default async function CreateListingPage() {
 
   if (role !== "artisan") {
     return (
-      <main style={{ padding: "2rem" }}>
+      <main className={styles.createListingPage}>
         <h1>Create Listing</h1>
         <p>Only artisans can create listings.</p>
       </main>
@@ -18,7 +19,7 @@ export default async function CreateListingPage() {
   }
 
   return (
-    <main style={{ padding: "2rem", maxWidth: 600, margin: "0 auto" }}>
+    <main className={styles.createListingPage}>
       <h1>Create Listing</h1>
       <CreateProductForm userId={userId} />
     </main>
