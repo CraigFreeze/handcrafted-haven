@@ -37,7 +37,7 @@ export default function CreateProductForm({ userId }: { userId: string }) {
       {state.errors &&
         Object.entries(state.errors).map(([field, messages]) => (
           <p key={field} style={{ color: "red" }}>
-            {messages as string}
+            {messages as unknown as string}
           </p>
         ))}
       {state.message && <p style={{ color: "green" }}>{state.message}</p>}
