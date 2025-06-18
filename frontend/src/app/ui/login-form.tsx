@@ -49,7 +49,7 @@ export default function LoginForm() {
           </div>
         </div>
         <input type="hidden" name="redirectTo" value={callbackUrl} />
-        <button className={styles.button} aria-disabled={isPending}>
+        <button  className={styles.button} aria-disabled={isPending ? true : undefined}>
           Log in
         </button>
         <div className={styles.error} aria-live="polite" aria-atomic="true">

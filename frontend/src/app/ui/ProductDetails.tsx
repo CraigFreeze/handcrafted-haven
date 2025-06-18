@@ -15,6 +15,8 @@ function ProductDetails({ product }: { product: Product }) {
           src={product.image_url || "/hero-image.jpg"}
           alt="A duffle bag, dopp kit and ceramic mug sit atop a wood table in front of a wall of art prints."
           priority
+          sizes="(max-width: 900px) 100vw, 66vw"
+          quality={75}
         />
       </div>
       <div className="product-details">

@@ -31,6 +31,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "Handcrafted Haven",
+        type: "image/jpeg",
       },
     ],
     locale: "en_US",
