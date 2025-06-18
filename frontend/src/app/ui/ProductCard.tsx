@@ -1,6 +1,9 @@
+"use client";
+
 import "./ProductCard.css";
 import Image from "next/image";
 import { FaRegStar } from "react-icons/fa";
+import { addToCart } from "@/app/lib/cart";
 
 type ProductCardProps = {
   id: string;
@@ -19,6 +22,15 @@ function ProductCard({
   rating,
   photoSrc,
 }: ProductCardProps) {
+  const product = {
+    id,
+    title,
+    description,
+    price: Number(price),
+    image_url: photoSrc,
+    category: "", // Not available in props
+    user_id: "", // Not available in props
+  };
   return (
     <div className="product-card">
       <a href={"product/" + id}>
@@ -46,7 +58,14 @@ function ProductCard({
           <span className="product-card__product-details__product-price">
             ${price}
           </span>
-          <button className="product-card__product-details__add-to-cart-button">
+          <button
+            className="product-card__product-details__add-to-cart-button"
+            onClick={(e) => {
+              e.preventDefault();
+              addToCart(product);
+              alert(`Added ${title} to cart!`);
+            }}
+          >
             Add to Cart
           </button>
         </div>

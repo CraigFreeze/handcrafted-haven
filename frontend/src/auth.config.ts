@@ -16,6 +16,17 @@ export const authConfig = {
       }
       return true;
     },
+    async session({ session, token, user }) {
+      // Attach user id to session if available
+      if (user && user.id) {
+        session.user = session.user || {};
+        session.user.id = user.id;
+      } else if (token && token.sub) {
+        session.user = session.user || {};
+        session.user.id = token.sub;
+      }
+      return session;
+    },
   },
   providers: [], // Add providers with an empty array for now
 } satisfies NextAuthConfig;

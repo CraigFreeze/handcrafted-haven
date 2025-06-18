@@ -1,4 +1,6 @@
+"use client";
 import { Product } from "@/app/lib/definitions";
+import { addToCart } from "@/app/lib/cart";
 import Image from "next/image";
 import "./ProductDetails.css";
 
@@ -30,7 +32,13 @@ function ProductDetails({ product }: { product: Product }) {
           Category: {product.category}
         </div>
 
-        <button className="product-card__product-details__add-to-cart-button">
+        <button
+          className="product-card__product-details__add-to-cart-button"
+          onClick={() => {
+            addToCart(product);
+            alert(`Added ${product.title} to cart!`);
+          }}
+        >
           Add to Cart
         </button>
       </div>

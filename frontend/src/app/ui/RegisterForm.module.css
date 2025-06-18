@@ -61,3 +61,10 @@
   font-size: 1rem;
   margin-top: 0.5rem;
 }
+
+.loginPageLink {
+  display: block;
+  margin-top: 1rem;
+  color: #2b6777;
+  text-decoration: underline;
+}
