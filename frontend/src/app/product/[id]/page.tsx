@@ -4,10 +4,12 @@ import { fetchProductById, fetchRatingsAndReviewsByID } from "@/app/lib/data";
 import { auth } from "@/auth";
 import "./page.css";
 
-type Params = Promise<{ id: string }>;
+type Props = {
+  params: Promise<{ id: string }>;
+};
 
-export async function generateMetadata({ params }: { params: Params }) {
-  const { id } = await params;
+export default async function Page(props: Props) {
+  const { id } = await props.params;
   const product = await fetchProductById(id);
   const productReviews = await fetchRatingsAndReviewsByID(id);
   const session = await auth();
