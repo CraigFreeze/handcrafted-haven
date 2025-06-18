@@ -1,4 +1,4 @@
-
+import type { Metadata } from "next";
 import Image from "next/image";
 import styles from "./page.module.css";
 import HeroCard from "./ui/HeroCard";
@@ -10,6 +10,11 @@ import { Suspense } from "react";
 
 import "./page.css";
 import { fetchFilteredProductsWithRating } from "@/app/lib/data";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Browse unique handmade products on Handcrafted Haven.",
+};
 
 export default async function Home(props: {
   searchParams?: Promise<{
