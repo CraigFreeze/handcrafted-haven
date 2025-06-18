@@ -172,3 +172,15 @@ export async function createProduct(prevState: any, formData: FormData) {
     return { message: "Database Error: Failed to create product." };
   }
 }
+
+export async function deleteProduct(productId: string, userId: string) {
+  try {
+    await sql`
+      DELETE FROM products WHERE id = ${productId} AND user_id = ${userId}
+    `;
+    revalidatePath("/profile/update-listing");
+    return { message: "Product deleted successfully." };
+  } catch (error) {
+    return { message: "Database Error: Failed to delete product." };
+  }
+}

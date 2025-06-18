@@ -31,7 +31,7 @@ function Sidenav() {
             href="/profile/update-listing"
             aria-label="Update an existing listing"
           >
-            Update Listing
+            Remove and View Listing
           </Link>
         </li>
       </ul>

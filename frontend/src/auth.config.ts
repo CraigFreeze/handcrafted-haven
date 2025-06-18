@@ -17,13 +17,17 @@ export const authConfig = {
       return true;
     },
     async session({ session, token, user }) {
-      // Attach user id to session if available
+      // Attach user id and role to session if available
       if (user && user.id) {
         session.user = session.user || {};
         session.user.id = user.id;
+        // @ts-expect-error: custom property
+        session.user.role = (user as any).role;
       } else if (token && token.sub) {
         session.user = session.user || {};
         session.user.id = token.sub;
+        // @ts-expect-error: custom property
+        session.user.role = (token as any).role;
       }
       return session;
     },
