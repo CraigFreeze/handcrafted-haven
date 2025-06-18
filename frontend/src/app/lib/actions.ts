@@ -34,6 +34,15 @@ const UserRegistrationSchema = z.object({
   role: z.enum(["user", "artisan"]),
 });
 
+const ProductFormSchema = z.object({
+  user_id: z.string({ required_error: "Missing user ID." }),
+  title: z.string().min(1, { message: "Title is required." }),
+  category: z.string().min(1, { message: "Category is required." }),
+  price: z.coerce.number().min(0, { message: "Price must be positive." }),
+  description: z.string().min(1, { message: "Description is required." }),
+  image_url: z.string().url({ message: "Image URL must be valid." }),
+});
+
 export type State = {
   errors?: {
     productId?: string[];
@@ -129,5 +138,49 @@ export async function createUser(prevState: any, formData: FormData) {
   } catch (error) {
     return { message: "Database Error: Failed to register user." };
   }
-  
+}
+
+export async function createProduct(prevState: any, formData: FormData) {
+  const validated = ProductFormSchema.safeParse({
+    user_id: formData.get("user_id"),
+    title: formData.get("title"),
+    category: formData.get("category"),
+    price: formData.get("price"),
+    description: formData.get("description"),
+    image_url: formData.get("image_url"),
+  });
+
+  if (!validated.success) {
+    return {
+      errors: validated.error.flatten().fieldErrors,
+      message: "Invalid product fields.",
+    };
+  }
+
+  const { user_id, title, category, price, description, image_url } =
+    validated.data;
+  const id = uuidv4();
+
+  try {
+    await sql`
+      INSERT INTO products (id, user_id, title, category, price, description, image_url)
+      VALUES (${id}, ${user_id}, ${title}, ${category}, ${price}, ${description}, ${image_url})
+    `;
+    revalidatePath("/profile");
+    return { message: "Product created successfully." };
+  } catch (error) {
+    return { message: "Database Error: Failed to create product." };
+  }
+}
+
+export async function deleteProduct(productId: string, userId: string) {
+  try {
+    await sql`
+      DELETE FROM products WHERE id = ${productId} AND user_id = ${userId}
+    `;
+    revalidatePath("/profile/update-listing");
+    return { message: "Product deleted successfully." };
+  } catch (error) {
+    return { message: "Database Error: Failed to delete product." };
+  }
 }

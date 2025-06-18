@@ -1,0 +1,66 @@
+.updateListingPage {
+    max-width: 800px;
+    margin: 40px 1rem;
+    padding: 32px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+    font-family: var(--font-geist-sans, Arial, sans-serif);
+}
+
+.updateListingPage h1 {
+    font-size: 2rem;
+    margin-bottom: 24px;
+    color: #222;
+    letter-spacing: -0.5px;
+}
+
+.updateListingPage ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.updateListingPage li {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px 18px 16px 18px;
+    margin-bottom: 24px;
+    background: #fafafa;
+    transition: box-shadow 0.2s;
+}
+
+.updateListingPage li:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.updateListingPage strong {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.updateListingPage span {
+    display: block;
+    margin-bottom: 4px;
+    color: #555;
+}
+
+.updateListingPage a {
+    color: #0070f3;
+    text-decoration: underline;
+    font-size: 0.98em;
+}
+
+@media (max-width: 600px) {
+    .updateListingPage {
+        padding: 16px;
+    }
+
+    .updateListingPage li {
+        padding: 14px 8px 12px 8px;
+    }
+
+    .updateListingPage h1 {
+        font-size: 1.3rem;
+    }
+}
