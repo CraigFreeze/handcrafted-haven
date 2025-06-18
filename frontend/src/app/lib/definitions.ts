@@ -15,6 +15,8 @@ export type User = {
   email: string;
   password: string;
   role: "user" | "artisan";
+  public_name: string;
+  image: string;
 };
 
 export type Rating = {
