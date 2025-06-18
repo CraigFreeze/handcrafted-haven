@@ -25,6 +25,8 @@ function HeroComponent() {
           className="hero-component__right__hero-image"
           src="/hero-image.jpg"
           alt="A duffle bag, dopp kit and ceramic mug sit atop a wood table in front of a wall of art prints."
+       
+          quality={75}
         />
       </div>
     </div>

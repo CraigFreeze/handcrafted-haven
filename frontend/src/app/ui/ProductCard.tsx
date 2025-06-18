@@ -36,11 +36,14 @@ function ProductCard({
       <a href={"product/" + id}>
         <div className="product-card__product-image-wrapper">
           <Image
-            width={1000}
-            height={667}
-            className="product-card__product-image-wrapper__product-image "
-            src={photoSrc || "/hero-image.jpg"}
-            alt="A duffle bag, dopp kit and ceramic mug sit atop a wood table in front of a wall of art prints."
+            src={photoSrc}
+            alt={title}
+            width={400}
+            height={320}
+            quality={80}
+            sizes="(max-width: 600px) 100vw, 400px"
+            loading="lazy"
+            className="product-card__product-image-wrapper__product-image"
           />
         </div>
         <div className="product-card__product-details">
