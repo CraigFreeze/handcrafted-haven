@@ -16,7 +16,7 @@
     "bcryptjs": "^3.0.2",
     "lucide-react": "^0.511.0",
     "next": "15.4.0-canary.47",
-    "next-auth": "^4.24.11",
+    "next-auth": "5.0.0-beta.28",
     "postgres": "^3.4.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
