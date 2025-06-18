@@ -4,7 +4,13 @@ import { fetchProductById, fetchRatingsAndReviewsByID } from "@/app/lib/data";
 import { auth } from "@/auth";
 import "./page.css";
 
-export default async function Page({ params }: { params: { id: string } }) {
+type PageProps = {
+  params: {
+    id: string;
+  };
+};
+
+export default async function Page({ params }: PageProps) {
   const { id } = params;
   const product = await fetchProductById(id);
   const productReviews = await fetchRatingsAndReviewsByID(id);
