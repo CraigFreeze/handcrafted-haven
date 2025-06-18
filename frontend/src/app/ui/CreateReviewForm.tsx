@@ -16,8 +16,15 @@ function CreateReviewForm({
   const [state, formAction] = useActionState(createReview, initialState);
   const [rating, setRating] = useState(5);
 
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    if (!userId) {
+      e.preventDefault();
+      alert("You must be signed in to submit a review.");
+    }
+  }
+
   return (
-    <form className="review-form" action={formAction}>
+    <form className="review-form" action={formAction} onSubmit={handleSubmit}>
       {/* Hidden fields for productId and userId */}
       <input type="hidden" name="productId" value={productId} />
       <input type="hidden" name="userId" value={userId} />

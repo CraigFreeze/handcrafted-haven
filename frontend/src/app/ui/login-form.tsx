@@ -4,6 +4,7 @@ import { useActionState } from "react";
 import { authenticate } from "@/app/lib/actions";
 import { useSearchParams } from "next/navigation";
 import styles from "./login-form.module.css";
+import Link from "next/link";
 
 export default function LoginForm() {
   const searchParams = useSearchParams();
@@ -54,6 +55,9 @@ export default function LoginForm() {
         <div className={styles.error} aria-live="polite" aria-atomic="true">
           {errorMessage && <p>{errorMessage}</p>}
         </div>
+        <Link className={styles.registerPageLink} href={"/register"}>
+          Go To Register Page
+        </Link>
       </div>
     </form>
   );

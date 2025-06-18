@@ -3,6 +3,7 @@
 import React, { useActionState } from "react";
 import { createUser } from "@/app/lib/actions";
 import styles from "./RegisterForm.module.css";
+import Link from "next/link";
 
 const initialState = {
   errors: {},
@@ -74,11 +75,15 @@ export default function RegisterForm() {
           <p className={styles.error}>{state.errors.role}</p>
         )}
       </div>
-      
+
       <button type="submit" className={styles.button}>
         Register
       </button>
       {state.message && <p className={styles.success}>{state.message}</p>}
+
+      <Link className={styles.loginPageLink} href={"/login"}>
+        Go To Login Page
+      </Link>
     </form>
   );
 }

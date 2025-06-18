@@ -55,3 +55,10 @@
     font-size: 0.95rem;
     margin-top: 0.25rem;
 }
+
+.registerPageLink {
+    display: block;
+    margin-top: 1rem;
+    color: #2b6777;
+    text-decoration: underline;
+}

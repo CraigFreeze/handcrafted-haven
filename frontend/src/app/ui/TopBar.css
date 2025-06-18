@@ -1,0 +1,53 @@
+.topbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    position: fixed;
+}
+
+.topbar-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: -1px;
+    color: #2b6777;
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.topbar-signin {
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    background: #2b6777;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.topbar-signin:hover {
+    background: #20505e;
+}
+
+.topbar-icon {
+    width: 28px;
+    height: 28px;
+    color: #444;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.topbar-icon:hover {
+    color: #2b6777;
+}
